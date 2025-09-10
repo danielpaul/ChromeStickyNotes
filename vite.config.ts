@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-param-reassign */
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { crx } from '@crxjs/vite-plugin';
@@ -64,7 +62,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        assetFileNames: (assetInfo) => {
+        assetFileNames: (assetInfo: { name?: string }) => {
           if (
             assetInfo.name &&
             /\.(ttf|woff|woff2|eot)$/.test(assetInfo.name)
